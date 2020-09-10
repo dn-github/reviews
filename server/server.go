@@ -6,8 +6,8 @@ import (
 	"log"
 
 	ratingPb "github.com/dn-github/ratings/pb"
-	reviewPb "github.com/dn-github/reviews/pb"
 	"github.com/dn-github/reviews/client"
+	reviewPb "github.com/dn-github/reviews/pb"
 	"google.golang.org/grpc"
 )
 
@@ -16,7 +16,7 @@ type reviewsImpl struct {
 }
 
 func NewReviewsImpl() *reviewsImpl {
-	conn, err := grpc.Dial("localhost:3003", grpc.WithInsecure())
+	conn, err := grpc.Dial("ratings:3003", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf(err.Error())
 		return nil
