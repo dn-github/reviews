@@ -4,10 +4,9 @@ import (
 	"context"
 	"log"
 
-	"google.golang.org/grpc"
-
 	ratingPb "github.com/dn-github/ratings/pb"
 	reviewPb "github.com/dn-github/reviews/pb"
+	"google.golang.org/grpc"
 )
 
 type reviewsImpl struct {
