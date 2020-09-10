@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pb;
+
+message Book {
+    string name = 1;
+}
+
+message Review {
+    string review = 1;
+    int64 rating = 2;
+}
+
+service ReviewService {
+    rpc reviews(Book) returns (Review) {};
+}
