@@ -8,9 +8,9 @@ import (
 )
 
 // GetRating ...
-func GetRating(c pb.RatingServiceClient) (int64, error) {
+func GetRating(c pb.RatingServiceClient, book string) (int64, error) {
 	ratingRequest := pb.Book{
-		Name: "Book Thief",
+		Name: book,
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*30)
 	defer cancel()
