@@ -41,12 +41,12 @@ func NewReviewsImpl() *reviewsImpl {
 //	rating, err := client.GetRating(r.ratingClient, book.Name)
 //	if err != nil {
 //		log.Fatalf(err.Error())
-//		return nil, err
+//		rating = 0
 //	}
 //	review := fmt.Sprintf("I am version 2 and %s is a nice and wonderful book with rating %d", book.Name, rating)
 //	log.Println(review)
 //	return &reviewPb.Review{
-//		Review: "A nice and wonderful book",
+//		Review: "I am version 2 and this is a nice and wonderful book",
 //		Rating: rating,
 //	}, nil
 //}
@@ -56,12 +56,12 @@ func (r *reviewsImpl) Reviews(ctx context.Context, book *reviewPb.Book) (*review
 	rating, err := client.GetRating(r.ratingClient, book.Name)
 	if err != nil {
 		log.Fatalf(err.Error())
-		return nil, err
+		rating = 0
 	}
 	review := fmt.Sprintf("I am version 3 and %s is an extremely wonderful book with rating %d", book.Name, rating)
 	log.Println(review)
 	return &reviewPb.Review{
-		Review: "An extremely wonderful book",
+		Review: "I am version 3 and this is an extremely wonderful book",
 		Rating: rating + 5,
 	}, nil
 }
